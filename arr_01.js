@@ -27,7 +27,7 @@ einer HTML-Seite ausgibt:
 <html><head></head><body><h1></h1><p></p></body></html>
 Verwenden Sie dafür die untenstehenden Arrays
 */
-
+const cobj = {open_o:"<",close_o:"</",close:">"};
 const controls = ["<", "</", ">"];
 const tags = [  "html","head","head","body",
                 "h1","h1",
@@ -80,9 +80,12 @@ function isOpenElement(tag) {
 function getElement(tag,op) {
     switch (op) {
         case "open": 
-            return controls[0] + tag + controls[2];
+            // return controls[0] + tag + controls[2];
+            return cobj.open_o + tag + cobj.close;
         case "close":
-            return controls[1] + tag + controls[2];
+            // return controls[1] + tag + controls[2];
+            return cobj.close_o + tag + cobj.close;
+
         default:
           return "#!?";
     }
